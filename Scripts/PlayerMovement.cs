@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 12f;
+    public float speed = 4f;
+    private float jumpingPower = 10f;
     public float speedVeloc = 15f;
     private bool isFacingRight = true;
 
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpingPower = new Vector2(6f, 12f);
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     public float hitForce = 10f;
-    public float hitCooldown = 1f;
+    public float hitCooldown = 0.5f;
     private float lasthitTime;
 
     Animator anim;
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         
        if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown)
             {
-                
+                Debug.Log("Mouse left button pressed!");
                 lasthitTime = Time.time;
             }
 
