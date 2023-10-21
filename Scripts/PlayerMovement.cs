@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         
         anim.SetBool("isMoving",moving);
        anim.SetBool("isGrounded",IsGrounded());
+       anim.SetBool("isWallsliding",isWallSliding);
         
         if(!IsGrounded()){
         anim.SetBool("isMoving",false);
