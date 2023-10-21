@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     public float speed = 4f;
-    private float jumpingPower = 10f;
+    private float jumpingPower = 12f;
     public float speedVeloc = 15f;
     private bool isFacingRight = true;
 
@@ -16,10 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
+    private float wallJumpingTime = 0.1f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(6f, 12f);
+    private Vector2 wallJumpingPower = new Vector2(2f, 12f);
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
