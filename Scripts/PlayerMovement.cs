@@ -78,8 +78,13 @@ public class PlayerMovement : MonoBehaviour
        if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown){
                 Debug.Log("Mouse left button pressed!");
                 lasthitTime = Time.time;
+                
+                anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
+                
             }
-
+        else{
+            anim.SetBool("isAttacking",false);
+        }
 
         WallSlide();
         WallJump();
@@ -99,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
     
-        if (!isWallJumping){
+        if (!isWallJumping ){
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
            }
       
