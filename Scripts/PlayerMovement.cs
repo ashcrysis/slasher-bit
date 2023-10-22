@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(2f, 12f);
 
-    public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform fallCheck;
@@ -34,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float hitCooldown = 0.3f;
     private float lasthitTime;
     public Animator animSlash;
+    public bool isAttacking;
 
     Animator anim;
     private void Start(){
@@ -77,15 +77,16 @@ public class PlayerMovement : MonoBehaviour
 
 
        if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown){
-                Debug.Log("Mouse left button pressed!");
                 lasthitTime = Time.time;
                 
                 anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
                 animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
+                isAttacking = true;
             }
         else{
             anim.SetBool("isAttacking",false);
             animSlash.SetBool("isAttacking",false);
+            isAttacking = false;
         }
 
         WallSlide();
