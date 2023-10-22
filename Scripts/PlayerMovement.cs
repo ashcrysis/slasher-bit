@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(2f, 12f);
 
-
+    public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform fallCheck;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public float hitForce = 10f;
     private float hitCooldown = 0.3f;
     private float lasthitTime;
-
+    public Animator animSlash;
 
     Animator anim;
     private void Start(){
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("isWallsliding",isWallSliding);
         anim.SetBool("fallCheck",IsFalling());
+        
 
         if(!IsGrounded()){
 
@@ -80,10 +81,11 @@ public class PlayerMovement : MonoBehaviour
                 lasthitTime = Time.time;
                 
                 anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                
+                animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
             }
         else{
             anim.SetBool("isAttacking",false);
+            animSlash.SetBool("isAttacking",false);
         }
 
         WallSlide();
