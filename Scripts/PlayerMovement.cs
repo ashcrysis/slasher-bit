@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         
 
 
-       if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown){
+       if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown){
                 lasthitTime = Time.time;
                 
                 anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
