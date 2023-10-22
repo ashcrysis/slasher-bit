@@ -28,9 +28,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+
     public float hitForce = 10f;
-    private float hitCooldown = 0.3f;
-    private float lasthitTime;
+    public float hitCooldown = 0.3f;
+    public float lasthitTime;
+    public Animator animSlash;
 
     Animator anim;
     private void Start(){
@@ -47,30 +49,47 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("isWallsliding",isWallSliding);
         anim.SetBool("fallCheck",IsFalling());
+        
+
         if(!IsGrounded()){
+
         anim.SetBool("isMoving",false);
+
         }
+
+
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
-        }else{
+        }
+
+        else{
                anim.SetBool("isJumping",false);
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
+
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f){
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
         
-       if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown)
-            {
-                Debug.Log("Mouse left button pressed!");
+
+
+       if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown){
                 lasthitTime = Time.time;
+                
+                anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
+                animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
             }
+        else{
+            anim.SetBool("isAttacking",false);
+            animSlash.SetBool("isAttacking",false);
+        }
 
         WallSlide();
         WallJump();
+
+
         if (!isWallJumping){
         Flip();
         }
@@ -85,15 +104,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
     
-        if (!isWallJumping){
+        if (!isWallJumping ){
+                
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
            }
       
     }
+
+
  private void WallJump()
     {
         if (isWallSliding)
         {
+
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
@@ -104,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         {
             wallJumpingCounter -= Time.deltaTime;
         }
+
 
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
@@ -123,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     private void StopWallJumping()
     {
         isWallJumping = false;
@@ -134,11 +159,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
    private bool IsWalled()
     {
     return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
 
     }
+
 
  private bool IsFalling()
     {
