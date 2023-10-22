@@ -30,10 +30,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float hitForce = 10f;
-    private float hitCooldown = 0.3f;
-    private float lasthitTime;
+    public float hitCooldown = 0.3f;
+    public float lasthitTime;
     public Animator animSlash;
-    public bool isAttacking;
 
     Animator anim;
     private void Start(){
@@ -81,12 +80,10 @@ public class PlayerMovement : MonoBehaviour
                 
                 anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
                 animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                isAttacking = true;
             }
         else{
             anim.SetBool("isAttacking",false);
             animSlash.SetBool("isAttacking",false);
-            isAttacking = false;
         }
 
         WallSlide();
