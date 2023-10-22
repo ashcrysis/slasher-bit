@@ -23,12 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform fallCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
     public float hitForce = 10f;
-    public float hitCooldown = 0.5f;
+    private float hitCooldown = 0.3f;
     private float lasthitTime;
 
     Animator anim;
@@ -43,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         var moving = horizontal!= 0 ? true : false;
         
         anim.SetBool("isMoving",moving);
-       anim.SetBool("isGrounded",IsGrounded());
-       anim.SetBool("isWallsliding",isWallSliding);
-        
+        anim.SetBool("isGrounded",IsGrounded());
+        anim.SetBool("isWallsliding",isWallSliding);
+        anim.SetBool("fallCheck",IsFalling());
         if(!IsGrounded()){
         anim.SetBool("isMoving",false);
         }
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         Flip();
         }
             // Check for Shift key input to run
-        speed = Input.GetKey(KeyCode.LeftShift) ? speedVeloc : origSpeed;
+        speed = Input.GetButton("Fire3") ? speedVeloc : origSpeed;
         }
         
     
@@ -136,6 +137,12 @@ public class PlayerMovement : MonoBehaviour
    private bool IsWalled()
     {
     return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+
+    }
+
+ private bool IsFalling()
+    {
+    return Physics2D.OverlapCircle(fallCheck.position, 0.2f, groundLayer);
 
     }
 

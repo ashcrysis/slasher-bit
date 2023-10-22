@@ -126,19 +126,19 @@ TextureImporter:
       name: player land 48x48_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 8
-        width: 19
-        height: 26
+        x: 56
+        y: 416
+        width: 80
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dee024f50667924b88999c6faf46068
-      internalID: 895529085
+      spriteID: 628adb306f4abc044b0869bb3794dcb3
+      internalID: 1508333935
       vertices: []
       indices: 
       edges: []
@@ -147,19 +147,82 @@ TextureImporter:
       name: player land 48x48_1
       rect:
         serializedVersion: 2
-        x: 206
-        y: 8
-        width: 19
-        height: 26
+        x: 248
+        y: 416
+        width: 80
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47d4843cc9db42a44a5a7c41fc1c40c5
-      internalID: -1299825597
+      spriteID: aa780ec0f508e604a980b26dcb367835
+      internalID: 822924251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player land 48x48_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 416
+        width: 80
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1155bd075cd03418672846ca1bfd6e
+      internalID: 824673471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player land 48x48_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 224
+        width: 76
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a7130af1f881a46ab7c89ee1af8536
+      internalID: 381615752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player land 48x48_4
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 224
+        width: 76
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3792c15d55f7094e895b4ad3c59b4a7
+      internalID: -796551862
       vertices: []
       indices: 
       edges: []
@@ -168,82 +231,19 @@ TextureImporter:
       name: player land 48x48_6
       rect:
         serializedVersion: 2
-        x: 14
-        y: 8
-        width: 20
-        height: 18
+        x: 442
+        y: 223
+        width: 76
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43b8796cb089b6459cacf6d76fdd866
-      internalID: -179700202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player land 48x48_7
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 8
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb18f9c439933564196ceeb4daa7b9df
-      internalID: -1581217500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player land 48x48_8
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 8
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 841e873987a00c74f83c9b0e6ad15167
-      internalID: -925193547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player land 48x48_9
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 8
-        width: 19
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4332a0a51f401604799c8b10611c1d45
-      internalID: -1394425192
+      spriteID: e75f739e1381cfc45a06b88054339ebf
+      internalID: 1865089459
       vertices: []
       indices: 
       edges: []
@@ -252,19 +252,19 @@ TextureImporter:
       name: player land 48x48_10
       rect:
         serializedVersion: 2
-        x: 302
-        y: 8
-        width: 19
-        height: 28
+        x: 56
+        y: 32
+        width: 76
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da975ba4456618841a67e70d3f7dd87b
-      internalID: 589669003
+      spriteID: ea613acfcc91c284ebbd4d877e6418d3
+      internalID: -1863973861
       vertices: []
       indices: 
       edges: []
@@ -273,19 +273,19 @@ TextureImporter:
       name: player land 48x48_11
       rect:
         serializedVersion: 2
-        x: 350
-        y: 8
-        width: 18
-        height: 30
+        x: 248
+        y: 32
+        width: 72
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6808b4d396ea55540aa2a53d11dbc2e9
-      internalID: -2137738482
+      spriteID: bf0ca02c217836749a7ff875d9116769
+      internalID: 500321661
       vertices: []
       indices: 
       edges: []
@@ -294,19 +294,19 @@ TextureImporter:
       name: player land 48x48_12
       rect:
         serializedVersion: 2
-        x: 398
-        y: 8
-        width: 18
-        height: 30
+        x: 441
+        y: 32
+        width: 72
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2857d518dceb9084abba28a5bca04096
-      internalID: 369250390
+      spriteID: dcf139c3c9cb7b7488cfe68e8ba67d6a
+      internalID: -45317731
       vertices: []
       indices: 
       edges: []
@@ -322,19 +322,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player land 48x48_0: 895529085
-      player land 48x48_1: -1299825597
-      player land 48x48_10: 589669003
-      player land 48x48_11: -2137738482
-      player land 48x48_12: 369250390
-      player land 48x48_2: -242874209
-      player land 48x48_3: 1113294863
-      player land 48x48_4: 1621770707
-      player land 48x48_5: -2050089286
-      player land 48x48_6: -179700202
-      player land 48x48_7: -1581217500
-      player land 48x48_8: -925193547
-      player land 48x48_9: -1394425192
+      player land 48x48_0: 1508333935
+      player land 48x48_1: 822924251
+      player land 48x48_10: -1863973861
+      player land 48x48_11: 500321661
+      player land 48x48_12: -45317731
+      player land 48x48_2: 824673471
+      player land 48x48_3: 381615752
+      player land 48x48_4: -796551862
+      player land 48x48_5: 380539475
+      player land 48x48_6: 1865089459
+      player land 48x48_7: -1020666205
+      player land 48x48_8: -857442057
+      player land 48x48_9: -2001440268
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

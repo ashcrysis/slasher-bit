@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player jump 48x48_3
+      name: player jump 48x48_2
       rect:
         serializedVersion: 2
-        x: 11
-        y: 4
-        width: 20
-        height: 35
+        x: 44
+        y: 208
+        width: 80
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d329ac90da0c6249ab491b94bb654c9
-      internalID: 1610063897
+      spriteID: 2b171ec60b2e3424ca9ac43a6d5d297b
+      internalID: 1080888208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player jump 48x48_4
+      name: player jump 48x48_3
       rect:
         serializedVersion: 2
-        x: 56
-        y: 4
-        width: 23
-        height: 36
+        x: 224
+        y: 208
+        width: 92
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969fcb70eb6ee954ebee30c75b140aa9
-      internalID: 679331880
+      spriteID: 7abb1653e8a1a47499bc06716529062c
+      internalID: 1797269662
       vertices: []
       indices: 
       edges: []
@@ -168,10 +168,10 @@ TextureImporter:
       name: player jump 48x48_5
       rect:
         serializedVersion: 2
-        x: 107
-        y: 5
-        width: 22
-        height: 34
+        x: 44
+        y: 20
+        width: 88
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3918efec22b32cb40abc99b9b7cbb83c
-      internalID: 1946133446
+      spriteID: c39018ccd6926814ba7e4ab69b1c2af9
+      internalID: 1185152183
       vertices: []
       indices: 
       edges: []
@@ -196,13 +196,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player jump 48x48_0: 1407941357
-      player jump 48x48_1: 1216970433
-      player jump 48x48_2: -1698412884
-      player jump 48x48_3: 1610063897
-      player jump 48x48_4: 679331880
-      player jump 48x48_5: 1946133446
-      player jump 48x48_6: -660707194
+      player jump 48x48_0: -728561293
+      player jump 48x48_1: -1153050102
+      player jump 48x48_2: 1080888208
+      player jump 48x48_3: 1797269662
+      player jump 48x48_4: 34411532
+      player jump 48x48_5: 1185152183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
