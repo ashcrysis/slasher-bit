@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingTime = 0.1f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(2f, 12f);
+    private Vector2 wallJumpingPower = new Vector2(6f, 12f);
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -47,9 +47,8 @@ public class PlayerMovement : MonoBehaviour
         
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
-        anim.SetBool("isWallsliding",isWallSliding);
         anim.SetBool("fallCheck",IsFalling());
-        
+       
 
         if(!IsGrounded()){
 
@@ -155,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
     }
 
@@ -169,7 +168,12 @@ public class PlayerMovement : MonoBehaviour
 
  private bool IsFalling()
     {
-    return Physics2D.OverlapCircle(fallCheck.position, 0.2f, groundLayer);
+ if (IsGrounded()){
+            return false;
+        }
+
+
+    return Physics2D.OverlapCircle(fallCheck.position, 0.6f, groundLayer);
 
     }
 

@@ -44,7 +44,7 @@ public class SwordSlash : MonoBehaviour
             var enemy = other.GetComponent<enemyHandler>();
             if (enemy != null)
             {
-                // Check if the player wants to attack before dealing damage
+                // Check if the player wants to attack before dealing damagea
                 if (hit)
                 {
                     enemy.life -= damage;
