@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(2f, 12f);
 
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform fallCheck;
@@ -28,9 +29,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+
     public float hitForce = 10f;
     private float hitCooldown = 0.3f;
     private float lasthitTime;
+
 
     Animator anim;
     private void Start(){
@@ -47,30 +50,41 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("isWallsliding",isWallSliding);
         anim.SetBool("fallCheck",IsFalling());
+
         if(!IsGrounded()){
+
         anim.SetBool("isMoving",false);
+
         }
+
+
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
-        }else{
+        }
+
+        else{
                anim.SetBool("isJumping",false);
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
+
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f){
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
         
-       if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown)
-            {
+
+
+       if (Input.GetButtonDown("Fire1") && Time.time - lasthitTime > hitCooldown){
                 Debug.Log("Mouse left button pressed!");
                 lasthitTime = Time.time;
             }
 
+
         WallSlide();
         WallJump();
+
+
         if (!isWallJumping){
         Flip();
         }
@@ -90,10 +104,13 @@ public class PlayerMovement : MonoBehaviour
            }
       
     }
+
+
  private void WallJump()
     {
         if (isWallSliding)
         {
+
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
@@ -104,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         {
             wallJumpingCounter -= Time.deltaTime;
         }
+
 
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
@@ -123,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     private void StopWallJumping()
     {
         isWallJumping = false;
@@ -134,11 +153,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
    private bool IsWalled()
     {
     return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
 
     }
+
 
  private bool IsFalling()
     {
