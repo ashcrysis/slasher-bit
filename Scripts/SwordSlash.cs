@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ public class SwordSlash : MonoBehaviour
     public PlayerMovement playerMovement;
     private bool hit;
     private float lasthitTime;
-    public int damage = 10;
+    public int damage = 30;
+
+  
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
@@ -24,7 +27,9 @@ public class SwordSlash : MonoBehaviour
 
             // Rotate the sword GameObject to face the mouse
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            hit = Input.GetButtonDown("Fire1");
+            hit = Input.GetButtonDown("Fire1") ;
+            StartCoroutine(ResetHitAfterDelay(0.1f));
+            
             // Trigger the sword slash particle effect
             lasthitTime = playerMovement.lasthitTime;
         }
@@ -37,8 +42,7 @@ public class SwordSlash : MonoBehaviour
     // Check conditions from PlayerMovement script
     if (hit && Time.time - lasthitTime > playerMovement.hitCooldown)
     {
-        Debug.Log("Slash has entered in collision with " + other);
-
+        
         if (other.CompareTag("enemy"))
         {
             var enemy = other.GetComponent<enemyHandler>();
@@ -47,15 +51,25 @@ public class SwordSlash : MonoBehaviour
                 // Check if the player wants to attack before dealing damagea
                 if (hit)
                 {
+                    Debug.Log("Slash has made damage on " + other);
+
                     enemy.life -= damage;
+                    Debug.Log(hit);
                     lasthitTime = Time.time;  // Update the last hit time here
                     hit = false;
                 }
+                
             }
         }
     }
+    hit = false;
 }
-
+    private IEnumerator ResetHitAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        hit = false;
+        Debug.Log(hit);
+    }
 
  
 }

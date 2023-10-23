@@ -33,18 +33,26 @@ public class PlayerMovement : MonoBehaviour
     public float hitCooldown = 0.3f;
     public float lasthitTime;
     public Animator animSlash;
-
+    public ParticleSystem particle;
     Animator anim;
     private void Start(){
             origSpeed = speed;
             anim = GetComponent<Animator>();
+     
+        //particle.Stop();
+    
     }
 
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");    
         var moving = horizontal!= 0 ? true : false;
-        
+        if (moving== true && IsGrounded()){
+            particle.Play();
+        }else if (!moving){
+            particle.Stop();
+
+        }
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("fallCheck",IsFalling());
