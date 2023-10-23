@@ -62,13 +62,11 @@ public class SwordSlash : MonoBehaviour
             }
         }
     }
-    hit = false;
 }
     private IEnumerator ResetHitAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         hit = false;
-        Debug.Log(hit);
     }
 
  
