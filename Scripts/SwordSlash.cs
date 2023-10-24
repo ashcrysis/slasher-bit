@@ -6,11 +6,10 @@ public class SwordSlash : MonoBehaviour
 {
     public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     public PlayerMovement playerMovement;
+    
     public bool hit;
-    private float lasthitTime;
     public int damage = 30;
-
-  
+    private float lasthitTime;
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
@@ -27,45 +26,40 @@ public class SwordSlash : MonoBehaviour
 
             // Rotate the sword GameObject to face the mouse
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            hit = Input.GetButtonDown("Fire1") ;
-            StartCoroutine(ResetHitAfterDelay(0.1f));
-            
-            // Trigger the sword slash particle effect
+            hit = Input.GetMouseButtonDown(0);
             lasthitTime = playerMovement.lasthitTime;
+            
+            
         }
     }
-
-
     
  private void OnTriggerStay2D(Collider2D other)
-{
-    // Check conditions from PlayerMovement script
-    if (hit && Time.time - lasthitTime > playerMovement.hitCooldown)
-    {
-        
+{  
+    if (hit && Time.time - lasthitTime > playerMovement.hitCooldown){
+        Debug.Log("Condition met");
         if (other.CompareTag("enemy"))
         {
             var enemy = other.GetComponent<enemyHandler>();
+
             if (enemy != null)
             {
-                // Check if the player wants to attack before dealing damagea
+                // Check if the player wants to attack before dealing damage
                 if (hit)
                 {
                     Debug.Log("Slash has made damage on " + other);
 
                     enemy.life -= damage;
-                    Debug.Log(hit);
-                    lasthitTime = Time.time;  // Update the last hit time here
-                    hit = false;
                 }
-                
             }
         }
+        hit = false;
     }
 }
+
     private IEnumerator ResetHitAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        Debug.Log("Hit reseted");
         hit = false;
     }
 
