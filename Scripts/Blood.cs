@@ -7,7 +7,6 @@ public class Blood : MonoBehaviour
     public SwordSlash player;
     private bool bloodInstantiated = false;
     private bool hit;
-    private bool hasTriggered = false;
 
     void Update()
     {

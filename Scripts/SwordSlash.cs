@@ -44,12 +44,11 @@ public class SwordSlash : MonoBehaviour
             if (enemy != null)
             {
                 // Check if the player wants to attack before dealing damage
-                if (hit)
-                {
+               
                     Debug.Log("Slash has made damage on " + other);
 
                     enemy.life -= damage;
-                }
+                
             }
         }
         hit = false;
