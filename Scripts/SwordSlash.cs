@@ -6,7 +6,7 @@ public class SwordSlash : MonoBehaviour
 {
     public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     public PlayerMovement playerMovement;
-    private bool hit;
+    public bool hit;
     private float lasthitTime;
     public int damage = 30;
 

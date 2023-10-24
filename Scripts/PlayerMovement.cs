@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform abletoDash;
     [SerializeField] private Transform fallCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform wallCheck;
@@ -68,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             untouchable = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && ableDash() && canDash)
         {
             StartCoroutine(Dashh());
         }
@@ -177,11 +178,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Executing");
         canDash = false;
         isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = originalGravity;
         isDashing = false;
 
         yield return new WaitForSeconds(dashingCooldown);
@@ -198,7 +196,11 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
     }
+  private bool ableDash()
+    {
+        return Physics2D.OverlapCircle(abletoDash.position, 0.2f, groundLayer);
 
+    }
 
    private bool IsWalled()
     {
