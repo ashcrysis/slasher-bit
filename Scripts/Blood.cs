@@ -4,13 +4,34 @@ using UnityEngine;
 public class Blood : MonoBehaviour
 {
     public ParticleSystem blood;
-    public SwordSlash player;
     private bool bloodInstantiated = false;
     private bool hit;
+    private SwordSlash swordSlash;
 
+   
+    void Start()
+    {
+         GameObject slashObject = GameObject.Find("Slash");
+ if (slashObject != null)
+        {
+            // Obtendo o componente SwordSlash do objeto Slash
+            swordSlash = slashObject.GetComponent<SwordSlash>();
+
+            if (swordSlash == null)
+            {
+                Debug.LogError("SwordSlash component not found on the Slash object!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Slash object not found in the scene!");
+        }
+
+        
+    }
     void Update()
     {
-        hit = player.hit;
+        hit = swordSlash.hit;
        
     }
 
