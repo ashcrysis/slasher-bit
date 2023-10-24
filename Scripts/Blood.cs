@@ -26,7 +26,6 @@ public class Blood : MonoBehaviour
             TurnBloodyOff(0.001f, instantiatedBlood);
             StartCoroutine(RestartBlood(0.1f));
             bloodInstantiated = true;
-            Debug.Log("Tried to stop.");
         }
     }
 

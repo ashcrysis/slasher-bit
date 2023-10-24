@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float hitForce = 10f;
-    public float hitCooldown = 0.3f;
+    public float hitCooldown = 0.1f;
     public float lasthitTime;
     public Animator animSlash;
     Animator anim;

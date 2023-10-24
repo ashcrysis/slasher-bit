@@ -29,7 +29,7 @@ public class SwordSlash : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             hit = true;              
                 
-            StartCoroutine(ResetHitAfterDelay(0.1f));
+            StartCoroutine(ResetHitAfterDelay(0.2f));
             
             
         }
@@ -37,7 +37,8 @@ public class SwordSlash : MonoBehaviour
     
  private void OnTriggerStay2D(Collider2D other)
 {  
-    if (hit && Time.time - lasthitTime > playerMovement.hitCooldown){
+    Debug.Log(hit && Time.time - lasthitTime > 0.1f);
+    if (hit && Time.time - lasthitTime > 0.1f){
         Debug.Log("Test ONE: hit = true and time > coodown passed");
         if (other.CompareTag("enemy")){
         Debug.Log("Test TWO: other.tag == enemy");
