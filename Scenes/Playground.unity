@@ -1046,7 +1046,8 @@ MonoBehaviour:
   endPoint: {fileID: 2064955475}
   prefabs:
   - {fileID: 7661305074235066116, guid: d8d91f425b6962047980e722d7940ef8, type: 3}
-  numberOfPrefabs: 10
+  enemyTag: enemy
+  respawnCooldown: 2
 --- !u!4 &1161770508
 Transform:
   m_ObjectHideFlags: 0
@@ -1217,7 +1218,7 @@ Transform:
   m_GameObject: {fileID: 1420730875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.24, y: -3.75, z: 0.6826296}
+  m_LocalPosition: {x: -24.5, y: -3.75, z: 0.6826296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1437,7 +1438,7 @@ Transform:
   m_GameObject: {fileID: 2064955474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.1, y: -3.75, z: 0.6826296}
+  m_LocalPosition: {x: 65, y: -3.75, z: 0.6826296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
