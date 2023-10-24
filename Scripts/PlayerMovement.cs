@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
     private bool untouchable;
-
+    public bool cutscene = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform abletoDash;
