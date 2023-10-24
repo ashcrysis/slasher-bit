@@ -175,7 +175,6 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dashh()
     {
-        Debug.Log("Executing");
         canDash = false;
         isDashing = true;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);

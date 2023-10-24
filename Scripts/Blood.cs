@@ -25,6 +25,7 @@ public class Blood : MonoBehaviour
             Vector3 hitDirection = (collider.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
 
+            Debug.Log(collider.ClosestPoint(transform.position));
             ParticleSystem instantiatedBlood = Instantiate(blood, collider.ClosestPoint(transform.position), Quaternion.Euler(0, 0, angle));
             instantiatedBlood.Play();
             Debug.Log("Playing");
