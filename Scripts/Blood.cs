@@ -24,6 +24,7 @@ public class Blood : MonoBehaviour
             ParticleSystem instantiatedBlood = Instantiate(blood, collider.ClosestPoint(transform.position), Quaternion.Euler(0, 0, angle));
             instantiatedBlood.Play();
             TurnBloodyOff(0.001f, instantiatedBlood);
+            StartCoroutine(RestartBlood(0.1f));
             bloodInstantiated = true;
             Debug.Log("Tried to stop.");
         }
@@ -34,6 +35,10 @@ public class Blood : MonoBehaviour
         yield return new WaitForSeconds(delay);
         blood.Stop();
     }
-
+  private IEnumerator RestartBlood(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        bloodInstantiated = false;
+    }
     
 }

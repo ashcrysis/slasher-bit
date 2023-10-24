@@ -12,6 +12,7 @@ public class SwordSlash : MonoBehaviour
     private float lasthitTime;
     void Update()
     {
+        lasthitTime = playerMovement.lasthitTime;
         if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -26,8 +27,9 @@ public class SwordSlash : MonoBehaviour
 
             // Rotate the sword GameObject to face the mouse
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            hit = Input.GetMouseButtonDown(0);
-            lasthitTime = playerMovement.lasthitTime;
+            hit = true;              
+                
+            StartCoroutine(ResetHitAfterDelay(0.1f));
             
             
         }
@@ -36,9 +38,12 @@ public class SwordSlash : MonoBehaviour
  private void OnTriggerStay2D(Collider2D other)
 {  
     if (hit && Time.time - lasthitTime > playerMovement.hitCooldown){
+        Debug.Log("Test ONE: hit = true and time > coodown passed");
+        if (other.CompareTag("enemy")){
+        Debug.Log("Test TWO: other.tag == enemy");
         Debug.Log("Condition met");
-        if (other.CompareTag("enemy"))
-        {
+        
+        
             var enemy = other.GetComponent<enemyHandler>();
 
             if (enemy != null)
@@ -51,7 +56,6 @@ public class SwordSlash : MonoBehaviour
                 
             }
         }
-        hit = false;
     }
 }
 
