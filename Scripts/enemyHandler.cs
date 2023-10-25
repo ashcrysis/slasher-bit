@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class enemyHandler : MonoBehaviour
 {
-    public int life = 30;
-    // Start is called before the first frame update
   
-    // Update is called once per frame
+    public int life = 30;
+    public AudioSource audio;
+    bool hasPlayed = false;
     void Update()
     {
         if (life<= 0){
-
-            Destroy(gameObject);
+            if (!hasPlayed){
+           Destroy(gameObject);
+           AudioSource _audio = Instantiate(audio);
+           StartCoroutine(deleteAudioAfterDelay(2f,_audio));
+           Debug.Log("Deleting audio");
+           hasPlayed = true;
         }
+        }
+    }
+     private IEnumerator deleteAudioAfterDelay(float delay, AudioSource obj)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(obj);
+        Debug.Log("Audio removed");
     }
 }

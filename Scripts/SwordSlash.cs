@@ -6,7 +6,7 @@ public class SwordSlash : MonoBehaviour
 {
     public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     public PlayerMovement playerMovement;
-    
+    public AudioSource audio;
     public bool hit;
     public int damage = 30;
     private float lasthitTime;
@@ -15,6 +15,7 @@ public class SwordSlash : MonoBehaviour
         lasthitTime = playerMovement.lasthitTime;
         if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
         {
+            audio.Play();
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = mousePos - transform.position;
             direction.Normalize();
@@ -50,6 +51,7 @@ public class SwordSlash : MonoBehaviour
                     Debug.Log("Slash has made damage on " + other);
 
                     enemy.life -= damage;
+                    
                 
             }
         }

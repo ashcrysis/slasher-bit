@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     public float hitCooldown = 0.1f;
     public float lasthitTime;
     public Animator animSlash;
+    public AudioSource Jump;
+    public AudioSource Land;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");    
         var moving = horizontal!= 0 ? true : false;
         anim.SetBool("landanim",ableDash());
+        
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("fallCheck",IsFalling());
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
+            Jump.Play();
         }
 
         else{
