@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");    
         var moving = horizontal!= 0 ? true : false;
-        
+        anim.SetBool("landanim",ableDash());
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("fallCheck",IsFalling());

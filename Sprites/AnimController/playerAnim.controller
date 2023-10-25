@@ -183,25 +183,25 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -6436160416729108220}
-    m_Position: {x: 0, y: 500, z: 0}
+    m_Position: {x: -430, y: 520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6966821222882597019}
     m_Position: {x: 30, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6654125664068827649}
-    m_Position: {x: 640, y: 350, z: 0}
+    m_Position: {x: 790, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7190718078191168144}
-    m_Position: {x: 380, y: 20, z: 0}
+    m_Position: {x: 520, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9189381297485445035}
-    m_Position: {x: 340, y: 740, z: 0}
+    m_Position: {x: 570, y: 900, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2973582461316562243}
-    m_Position: {x: 100, y: 730, z: 0}
+    m_Position: {x: 180, y: 910, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5993582702053094713}
-    m_Position: {x: -40, y: 870, z: 0}
+    m_Position: {x: -130, y: 870, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -249,7 +249,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isGrounded
+    m_ConditionEvent: landanim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7190718078191168144}
@@ -259,7 +259,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_ExitTime: 0.11
   m_HasExitTime: 1
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -442,6 +442,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: isDashing
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: landanim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
