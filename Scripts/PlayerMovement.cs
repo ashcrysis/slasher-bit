@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool untouchable;
     public bool cutscene = false;
-    public float acceleration = 5f;
+    public float acceleration = 2f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform abletoDash;
@@ -121,6 +122,9 @@ public class PlayerMovement : MonoBehaviour
 
         WallSlide();
         WallJump();
+        if (cutscene){
+            speed = 2f;
+        }
 }
 
         if (!isWallJumping){

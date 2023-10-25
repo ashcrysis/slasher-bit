@@ -727,11 +727,11 @@ PrefabInstance:
       objectReference: {fileID: 1455116144}
     - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: speedVeloc
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2901668727024946327, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: m_Layer
