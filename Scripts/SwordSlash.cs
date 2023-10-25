@@ -9,6 +9,7 @@ public class SwordSlash : MonoBehaviour
     public AudioSource audio;
     public bool hit;
     public int damage = 30;
+    private bool canDamage = true;
     private float lasthitTime;
     void Update()
     {
@@ -47,12 +48,13 @@ public class SwordSlash : MonoBehaviour
             if (enemy != null)
             {
                 // Check if the player wants to attack before dealing damage
-               
-                    Debug.Log("Slash has made damage on " + other);
 
+                    Debug.Log("Slash has made " +damage +  " points of damage on " + other);
+                    if (canDamage){
                     enemy.life -= damage;
-                    
-                
+                    canDamage = false;
+                    StartCoroutine(OnlyDamageOnce(0.2f));
+                    }
             }
         }
     }
@@ -63,6 +65,12 @@ public class SwordSlash : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Debug.Log("Hit reseted");
         hit = false;
+    }
+
+        private IEnumerator OnlyDamageOnce(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canDamage = true;
     }
 
  

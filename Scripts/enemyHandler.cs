@@ -15,16 +15,10 @@ public class enemyHandler : MonoBehaviour
             if (!hasPlayed){
            Destroy(gameObject);
            AudioSource _audio = Instantiate(audio);
-           StartCoroutine(deleteAudioAfterDelay(2f,_audio));
-           Debug.Log("Deleting audio");
+           
            hasPlayed = true;
         }
         }
     }
-     private IEnumerator deleteAudioAfterDelay(float delay, AudioSource obj)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(obj);
-        Debug.Log("Audio removed");
-    }
+ 
 }
