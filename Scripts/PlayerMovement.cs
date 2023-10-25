@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    public float speed = 4f;
+    public float speed = 2f;
     private float jumpingPower = 12f;
-    public float speedVeloc = 18f;
+    public float speedVeloc = 20f;
     private bool isFacingRight = true;
 
     private bool isWallSliding;
@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool untouchable;
     public bool cutscene = false;
+    public float acceleration = 5f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform abletoDash;
@@ -62,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("fallCheck",IsFalling());
+        
+        if (!cutscene){
         if (isDashing)
         {   
             untouchable = true;
@@ -115,13 +118,18 @@ public class PlayerMovement : MonoBehaviour
 
         WallSlide();
         WallJump();
-
+}
 
         if (!isWallJumping){
         Flip();
         }
             // Check for Shift key input to run
+            if (!cutscene){
         speed = Input.GetButton("Fire3") ? speedVeloc : origSpeed;
+        }else{
+            speed = origSpeed;
+        }
+        anim.SetFloat("speed",speed);
         }
         
     
@@ -136,7 +144,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!isWallJumping ){
                 
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            float targetVelocityX = horizontal * speed;
+            float smoothVelocityX = Mathf.Lerp(rb.velocity.x, targetVelocityX, Time.deltaTime * acceleration);
+
+            rb.velocity = new Vector2(smoothVelocityX, rb.velocity.y);
            }
       
     }

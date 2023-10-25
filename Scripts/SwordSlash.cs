@@ -11,8 +11,11 @@ public class SwordSlash : MonoBehaviour
     public int damage = 30;
     private bool canDamage = true;
     private float lasthitTime;
+    private bool isCutscene = false;
     void Update()
-    {
+    {       
+        isCutscene = playerMovement.cutscene;
+        if (!isCutscene){
         lasthitTime = playerMovement.lasthitTime;
         if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
         {
@@ -34,6 +37,7 @@ public class SwordSlash : MonoBehaviour
             StartCoroutine(ResetHitAfterDelay(0.2f));
             
             
+            }
         }
     }
     
@@ -53,6 +57,7 @@ public class SwordSlash : MonoBehaviour
                     if (canDamage){
                     enemy.life -= damage;
                     canDamage = false;
+
                     StartCoroutine(OnlyDamageOnce(0.2f));
                     }
             }
