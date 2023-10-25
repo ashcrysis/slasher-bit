@@ -6,6 +6,7 @@ public class EnemyPatrol : MonoBehaviour
 {
     public int speed;
     public float detectionRange = 5f; // Adjust this to your desired detection range
+    public float stopRange = 3f;
     private GameObject player;
     private Vector3 previousPosition;
     private bool moving;
@@ -29,7 +30,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-            if (distanceToPlayer <= detectionRange)
+            if (distanceToPlayer <= detectionRange && distanceToPlayer >= stopRange)
             {
                 Vector3 direction = player.transform.position - transform.position;
 
@@ -56,7 +57,9 @@ public class EnemyPatrol : MonoBehaviour
                 }
 
                 // Update previous position
-               
+               if ((distanceToPlayer >= stopRange)){
+                    moving = false;
+               }
                 anim.SetBool("isPatrolling",moving);
             }
         }

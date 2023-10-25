@@ -12,12 +12,14 @@ public class SwordSlash : MonoBehaviour
     private bool canDamage = true;
     private float lasthitTime;
     private bool isCutscene = false;
+    private bool canHit;
     void Update()
     {       
         isCutscene = playerMovement.cutscene;
         if (!isCutscene){
         lasthitTime = playerMovement.lasthitTime;
-        if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
+        canHit = playerMovement.canHit;
+        if (canHit) // Check for left mouse button click
         {
             audio.Play();
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -34,7 +36,7 @@ public class SwordSlash : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             hit = true;              
                 
-            StartCoroutine(ResetHitAfterDelay(0.2f));
+            StartCoroutine(ResetHitAfterDelay(0.4f));
             
             
             }
@@ -42,24 +44,24 @@ public class SwordSlash : MonoBehaviour
     }
     
  private void OnTriggerStay2D(Collider2D other)
-{  
-    if (hit && Time.time - lasthitTime > 0.1f){
-        if (other.CompareTag("enemy")){
-        
-        
-            var enemy = other.GetComponent<enemyHandler>();
+{
+    if (hit && Time.time - lasthitTime > playerMovement.hitCooldown)
+    {
+        if (other.CompareTag("enemy"))
+        {
+            var enemies = other.GetComponents<enemyHandler>();
 
-            if (enemy != null)
+            foreach (var enemy in enemies)
             {
                 // Check if the player wants to attack before dealing damage
-
-                    Debug.Log("Slash has made " +damage +  " points of damage on " + other);
-                    if (canDamage){
+                if (canDamage)
+                {
+                    Debug.Log("Slash has made " + damage + " points of damage on " + enemy.gameObject);
                     enemy.life -= damage;
                     canDamage = false;
 
-                    StartCoroutine(OnlyDamageOnce(0.2f));
-                    }
+                    StartCoroutine(OnlyDamageOnce(0.6f));
+                }
             }
         }
     }

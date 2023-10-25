@@ -9,8 +9,8 @@ public class RandomPrefabInstantiator : MonoBehaviour
     public string enemyTag = "Enemy"; // Tag for the enemies
     public float respawnCooldown = 2f; // Cooldown before respawning
 
-    private int baseNumberOfPrefabs = 2; // Base number of prefabs per wave
-    private int extraPrefabsPerWave = 2; // Number of extra prefabs added per wave
+    private int baseNumberOfPrefabs = 5; // Base number of prefabs per wave
+    private int extraPrefabsPerWave = 3; // Number of extra prefabs added per wave
     private int currentWave = 1; // Current wave number
     private bool isRespawning = false; // Flag to track if respawning is in progress
 
@@ -90,8 +90,8 @@ public class RandomPrefabInstantiator : MonoBehaviour
     void UpdateUI()
     {
         // Update the UI Text objects with the current wave number and enemy count
-        waveText.text = "Wave: " + currentWave;
+        waveText.text = "Onda: " + currentWave;
         int enemyCount = GameObject.FindGameObjectsWithTag(enemyTag).Length;
-        enemiesCountText.text = "Enemies Count: " + enemyCount;
+        enemiesCountText.text = "Quantidade de inimigos: " + enemyCount;
     }
 }

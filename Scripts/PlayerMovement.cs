@@ -41,11 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float hitForce = 10f;
-    public float hitCooldown = 0.1f;
+    public float hitCooldown = 1f;
     public float lasthitTime;
     public Animator animSlash;
     public AudioSource Jump;
     public AudioSource Land;
+    public bool canHit ;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -110,9 +111,11 @@ public class PlayerMovement : MonoBehaviour
                 
                 anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
                 animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
+                canHit=true;
             }
         else{
             anim.SetBool("isAttacking",false);
+            canHit=false;
             animSlash.SetBool("isAttacking",false);
         }
 

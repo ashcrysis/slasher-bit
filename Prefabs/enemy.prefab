@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 30
   audio: {fileID: 7983677017480139857, guid: 6071c793beb78164a951084a78195a42, type: 3}
+  knockbackForce: 9
 --- !u!95 &1791504797911948660
 Animator:
   serializedVersion: 5
@@ -218,10 +219,10 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
