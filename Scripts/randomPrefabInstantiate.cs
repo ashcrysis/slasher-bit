@@ -1,6 +1,5 @@
 using UnityEngine;
-
-using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomPrefabInstantiator : MonoBehaviour
 {
@@ -15,11 +14,15 @@ public class RandomPrefabInstantiator : MonoBehaviour
     private int currentWave = 1; // Current wave number
     private bool isRespawning = false; // Flag to track if respawning is in progress
 
- void Start()
-{
-    // Start by instantiating the base number of prefabs
-    InstantiatePrefabsRandomly(baseNumberOfPrefabs);
-}
+    public Text waveText;
+    public Text enemiesCountText;
+
+    void Start()
+    {
+        // Start by instantiating the base number of prefabs
+        InstantiatePrefabsRandomly(baseNumberOfPrefabs);
+        UpdateUI();
+    }
 
     void Update()
     {
@@ -29,6 +32,9 @@ public class RandomPrefabInstantiator : MonoBehaviour
             // If all enemies are inactive and not respawning, start the respawn coroutine for the next wave
             StartCoroutine(RespawnAfterCooldown());
         }
+
+        // Update the enemies count in the UI
+        UpdateUI();
     }
 
     void InstantiatePrefabsRandomly(int numberOfPrefabs)
@@ -75,8 +81,17 @@ public class RandomPrefabInstantiator : MonoBehaviour
         Debug.Log("Wave " + currentWave + " - Spawning " + numberOfPrefabs + " enemies");
 
         InstantiatePrefabsRandomly(numberOfPrefabs);
+        UpdateUI();
 
         // Reset the flag after respawning is complete
         isRespawning = false;
+    }
+
+    void UpdateUI()
+    {
+        // Update the UI Text objects with the current wave number and enemy count
+        waveText.text = "Wave: " + currentWave;
+        int enemyCount = GameObject.FindGameObjectsWithTag(enemyTag).Length;
+        enemiesCountText.text = "Enemies Count: " + enemyCount;
     }
 }
