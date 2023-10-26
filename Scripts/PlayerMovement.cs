@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         }
 }
 
-        if (!isWallJumping){
+        if (!isWallJumping && canHit==false){
         Flip();
         }
             // Check for Shift key input to run
