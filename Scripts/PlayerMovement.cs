@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool house = false;
     public bool cutscene = false;
     public float acceleration = 2f;
+    public int jumpCount=1;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform abletoDash;
@@ -60,10 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        
         horizontal = Input.GetAxisRaw("Horizontal");    
         var moving = horizontal!= 0 ? true : false;
         anim.SetBool("landanim",ableDash());
-        
+       
         anim.SetBool("isMoving",moving);
         anim.SetBool("isGrounded",IsGrounded());
         anim.SetBool("fallCheck",IsFalling());
@@ -91,11 +93,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded() && jumpCount<2)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
+            jumpCount++;
             Jump.Play();
+
+        }
+        
+        if (ableDash()){
+            jumpCount= 1;
         }
 
         else{
@@ -155,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
                 
             float targetVelocityX = horizontal * speed;
             float smoothVelocityX = Mathf.Lerp(rb.velocity.x, targetVelocityX, Time.deltaTime * acceleration);
-
+            
             rb.velocity = new Vector2(smoothVelocityX, rb.velocity.y);
            }
       
@@ -166,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isWallSliding)
         {
-
+            
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
