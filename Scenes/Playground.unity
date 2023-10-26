@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.25
   target: {fileID: 6859625147385106825}
+  followY: 1
 --- !u!61 &519420034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1735,11 +1736,19 @@ PrefabInstance:
       objectReference: {fileID: 8571701448252747032}
     - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: speed
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
+      propertyPath: cutscene
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: speedVeloc
-      value: 15
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 531563958539072161, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
+      propertyPath: acceleration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2901668727024946327, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: m_Layer
