@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool house = false;
     public bool cutscene = false;
     public float acceleration = 2f;
-    public int jumpCount=1;
+    private int jumpCount = 1;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform abletoDash;
@@ -97,13 +97,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
-            jumpCount++;
+        
+            jumpCount+=1;
             Jump.Play();
-
+        //if (jumpCount ==2){
+         //   Debug.Log("JumpCount: "+jumpCount);
+         //   anim.SetBool("airSpin",true);
+        //    StartCoroutine(ResetJumpAfterDelay(0.5f));
+       // }
         }
+
+        
         
         if (ableDash()){
             jumpCount= 1;
+            Debug.Log("jumpCount now is one " + jumpCount);
         }
 
         else{
@@ -251,8 +259,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
-
+    private IEnumerator ResetJumpAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+       
+        anim.SetBool("airSpin",false);
+    }
     private void WallSlide()
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)

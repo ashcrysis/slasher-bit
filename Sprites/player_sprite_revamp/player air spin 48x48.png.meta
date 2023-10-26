@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f6595cc88d8d9e64db384ad860756455
+guid: 6a0815c761ed1cb41b1d1c0f41c000ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Idle_0
+      name: player air spin 48x48_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 416
-        width: 84
-        height: 124
+        x: 64
+        y: 428
+        width: 64
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5bbffb46d720274585a28557bf192bf
-      internalID: 1917455974
+      spriteID: 81187cf62428de54c88817fff0f050e6
+      internalID: -2030204759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Idle_1
+      name: player air spin 48x48_1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 416
-        width: 88
-        height: 120
+        x: 240
+        y: 456
+        width: 96
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49c9de1fc4a87c40af933f9c005fe85
-      internalID: 205589389
+      spriteID: cf1899cfee62f4143bff53f8c5293dfb
+      internalID: 1315687849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Idle_2
+      name: player air spin 48x48_2
       rect:
         serializedVersion: 2
-        x: 428
-        y: 416
-        width: 88
-        height: 116
+        x: 52
+        y: 240
+        width: 80
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e80f1bc0a28035b428a6ee5b1819b7ba
-      internalID: -1007209577
+      spriteID: f0dfd2f2ff6896440b9c332b6ac3c043
+      internalID: 2102303146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Idle_3
+      name: player air spin 48x48_3
       rect:
         serializedVersion: 2
-        x: 44
-        y: 224
-        width: 88
-        height: 116
+        x: 228
+        y: 256
+        width: 92
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,62 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6f62fb09e48db24d92c61da1476be2c
-      internalID: 216117784
+      spriteID: 6d6ec64b2498ef94b837db16e5b46bd7
+      internalID: -333184283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Idle_4
-      rect:
-        serializedVersion: 2
-        x: 236
-        y: 224
-        width: 88
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c5ad35b681462f47896a22cdf01cce0
-      internalID: -499186095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Idle_5
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 224
-        width: 88
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7631f86a48013dc4cbb7141c8db20f1d
-      internalID: 1241706651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Idle_6
+      name: player air spin 48x48_4
       rect:
         serializedVersion: 2
         x: 28
-        y: 32
-        width: 100
-        height: 128
+        y: 68
+        width: 136
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d7868310f9bbe54887f4f7bcd4cabf9
-      internalID: -696136004
+      spriteID: 281d1f60b687603418487cd69c6caee4
+      internalID: 155391685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Idle_7
+      name: player air spin 48x48_5
       rect:
         serializedVersion: 2
         x: 220
         y: 32
-        width: 100
-        height: 128
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,29 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c2b4ac99d2fbd245881a21c444ca468
-      internalID: 372669897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Idle_8
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 32
-        width: 100
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e26a44bede7e9f34b86e6be22781f56d
-      internalID: 1433527446
+      spriteID: f66503e8e1a593b428f46efbdf5ada8b
+      internalID: -388631774
       vertices: []
       indices: 
       edges: []
@@ -322,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Idle_0: 1917455974
-      Character_Idle_1: 205589389
-      Character_Idle_2: -1007209577
-      Character_Idle_3: 216117784
-      Character_Idle_4: -499186095
-      Character_Idle_5: 1241706651
-      Character_Idle_6: -696136004
-      Character_Idle_7: 372669897
-      Character_Idle_8: 1433527446
+      player air spin 48x48_0: -2030204759
+      player air spin 48x48_1: 1315687849
+      player air spin 48x48_2: 2102303146
+      player air spin 48x48_3: -333184283
+      player air spin 48x48_4: 155391685
+      player air spin 48x48_5: -388631774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
