@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
     private bool untouchable;
+    private bool house = false;
     public bool cutscene = false;
     public float acceleration = 2f;
     [SerializeField] private Rigidbody2D rb;
