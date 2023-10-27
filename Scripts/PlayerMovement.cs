@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             untouchable = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && ableDash() && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && ableDash() && canDash && !anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
         {
             StartCoroutine(Dashh());
         }
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         {
             
             isWallJumping = false;
-            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingDirection = - transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
@@ -227,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void WallSlide()
     {
-        if (IsWalled() && !IsGrounded() && horizontal != 0f)
+        if (IsWalled() && !ableDash() && horizontal != 0f)
         {
             isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y,-wallSlidingSpeed, float.MaxValue));

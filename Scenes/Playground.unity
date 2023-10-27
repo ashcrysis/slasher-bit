@@ -818,8 +818,8 @@ Transform:
   m_GameObject: {fileID: 714440448}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.52, y: 6.69, z: 0}
-  m_LocalScale: {x: 8.018152, y: 33.85511, z: 0}
+  m_LocalPosition: {x: -64.6715, y: 6.69, z: 0}
+  m_LocalScale: {x: 22.32093, y: 33.85511, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1430,7 +1430,6 @@ MonoBehaviour:
   endPoint: {fileID: 25073880}
   prefabs:
   - {fileID: 7384788529703163510, guid: d8d91f425b6962047980e722d7940ef8, type: 3}
-  - {fileID: 7384788529703163510, guid: 6e0bf5ad13078fb43a8acc148cb005d7, type: 3}
   enemyTag: enemy
   respawnCooldown: 2
   waveText: {fileID: 2093358797}
@@ -1828,8 +1827,8 @@ Transform:
   m_GameObject: {fileID: 1392244195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 73.301, y: 13.8147, z: 0}
-  m_LocalScale: {x: 8.018152, y: 48.067486, z: 0}
+  m_LocalPosition: {x: 84.7735, y: 13.8147, z: 0}
+  m_LocalScale: {x: 30.962896, y: 48.067486, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

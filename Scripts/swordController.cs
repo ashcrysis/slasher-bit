@@ -28,7 +28,7 @@ public class swordController : MonoBehaviour
             canHit = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown && canDamage){
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown && canDamage && !anim.GetCurrentAnimatorStateInfo(0).IsName("roll")){
                     lasthitTime = Time.time;
                     
                     anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
