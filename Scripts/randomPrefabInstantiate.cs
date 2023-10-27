@@ -37,26 +37,29 @@ public class RandomPrefabInstantiator : MonoBehaviour
         UpdateUI();
     }
 
-    void InstantiatePrefabsRandomly(int numberOfPrefabs)
+void InstantiatePrefabsRandomly(int numberOfPrefabs)
+{
+    for (int i = 0; i < numberOfPrefabs; i++)
     {
-        for (int i = 0; i < numberOfPrefabs; i++)
-        {
-            // Get a random index to choose a prefab from the array
-            int randomPrefabIndex = Random.Range(0, prefabs.Length);
+        // Determine if the current wave is above four and generate a random value
+        bool spawnSpecialPrefab = currentWave > 4 && Random.value < 0.1f; // Adjust the probability as needed
 
-            // Get the range between start and end points
-            float distance = Vector2.Distance(startPoint.position, endPoint.position);
+        // Get a random index to choose a prefab from the array
+        int randomPrefabIndex = spawnSpecialPrefab ? 2 : Random.Range(0, prefabs.Length);
 
-            // Choose a random position along the range
-            float randomPosition = Random.Range(0f, 1f);
+        // Get the range between start and end points
+        float distance = Vector2.Distance(startPoint.position, endPoint.position);
 
-            // Calculate the position based on the random value
-            Vector2 spawnPosition = Vector2.Lerp(startPoint.position, endPoint.position, randomPosition);
+        // Choose a random position along the range
+        float randomPosition = Random.Range(0f, 1f);
 
-            // Instantiate the randomly chosen prefab at the chosen position
-            Instantiate(prefabs[randomPrefabIndex], spawnPosition, Quaternion.identity);
-        }
+        // Calculate the position based on the random value
+        Vector2 spawnPosition = Vector2.Lerp(startPoint.position, endPoint.position, randomPosition);
+
+        // Instantiate the chosen prefab at the chosen position
+        Instantiate(prefabs[randomPrefabIndex], spawnPosition, Quaternion.identity);
     }
+}
 
     bool AllEnemiesInactive()
     {

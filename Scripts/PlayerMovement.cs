@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
-
+    public bool moving;
     public float hitForce = 10f;
     public AudioSource Jump;
     public AudioSource Land;
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         horizontal = Input.GetAxisRaw("Horizontal");    
-        var moving = horizontal!= 0 ? true : false;
+         moving = horizontal!= 0 ? true : false;
         anim.SetBool("landanim",ableDash());
        
         anim.SetBool("isMoving",moving);
