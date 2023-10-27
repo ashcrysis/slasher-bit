@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class swordController : MonoBehaviour
 {
+    
     public float lasthitTime;
     public Animator anim;
     public Animator animSlash;

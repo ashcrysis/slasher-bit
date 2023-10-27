@@ -1621,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[15].y
       value: 0.036514584
       objectReference: {fileID: 0}
+    - target: {fileID: 5722876796736445871, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6205481823236695908, guid: 608b5f27847e25f4fba203166f47e8d0, type: 3}
       propertyPath: audio
       value: 
@@ -2122,7 +2126,7 @@ MonoBehaviour:
   playerMovement: {fileID: 334280601}
   audio: {fileID: 1912643240}
   hit: 0
-  damage: 15
+  damage: 30
 --- !u!82 &1912643240
 AudioSource:
   m_ObjectHideFlags: 0
