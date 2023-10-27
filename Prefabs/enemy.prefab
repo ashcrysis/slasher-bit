@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ee15e94a973db468c74a2caf31a042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   detectionRange: 18
   anim: {fileID: 1791504797911948660}
 --- !u!50 &-7240446551834757310
@@ -259,6 +259,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.76, y: 1.04}
+  m_Offset: {x: 0, y: 0.06462246}
+  m_Size: {x: 0.76, y: 0.91075504}
   m_Direction: 0
