@@ -2126,7 +2126,7 @@ MonoBehaviour:
   playerMovement: {fileID: 334280601}
   audio: {fileID: 1912643240}
   hit: 0
-  damage: 15
+  damage: 30
 --- !u!82 &1912643240
 AudioSource:
   m_ObjectHideFlags: 0
