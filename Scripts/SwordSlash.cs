@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,13 +6,22 @@ public class SwordSlash : MonoBehaviour
 {
     public SpriteRenderer sprite; // Drag your Particle System here in the Inspector
     public PlayerMovement playerMovement;
-    private bool hit;
+    public AudioSource audio;
+    public bool hit;
+    public int damage = 30;
+    private bool canDamage = true;
     private float lasthitTime;
-    public int damage = 10;
+    private bool isCutscene = false;
+    private bool canHit;
     void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
+    {       
+        isCutscene = playerMovement.cutscene;
+        if (!isCutscene){
+        lasthitTime = playerMovement.lasthitTime;
+        canHit = playerMovement.canHit;
+        if (canHit) // Check for left mouse button click
         {
+            audio.Play();
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = mousePos - transform.position;
             direction.Normalize();
@@ -24,38 +34,51 @@ public class SwordSlash : MonoBehaviour
 
             // Rotate the sword GameObject to face the mouse
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            hit = Input.GetButtonDown("Fire1");
-            // Trigger the sword slash particle effect
-            lasthitTime = playerMovement.lasthitTime;
+            hit = true;              
+                
+            StartCoroutine(ResetHitAfterDelay(0.4f));
+            
+            
+            }
         }
     }
-
-
     
  private void OnTriggerStay2D(Collider2D other)
 {
-    // Check conditions from PlayerMovement script
     if (hit && Time.time - lasthitTime > playerMovement.hitCooldown)
     {
-        Debug.Log("Slash has entered in collision with " + other);
-
         if (other.CompareTag("enemy"))
         {
-            var enemy = other.GetComponent<enemyHandler>();
-            if (enemy != null)
+            var enemies = other.GetComponents<enemyHandler>();
+
+            foreach (var enemy in enemies)
             {
                 // Check if the player wants to attack before dealing damage
-                if (hit)
+                if (canDamage)
                 {
+                    Debug.Log("Slash has made " + damage + " points of damage on " + enemy.gameObject);
                     enemy.life -= damage;
-                    lasthitTime = Time.time;  // Update the last hit time here
-                    hit = false;
+                    canDamage = false;
+
+                    StartCoroutine(OnlyDamageOnce(0.6f));
                 }
             }
         }
     }
 }
 
+    private IEnumerator ResetHitAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Hit reseted");
+        hit = false;
+    }
+
+        private IEnumerator OnlyDamageOnce(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canDamage = true;
+    }
 
  
 }
