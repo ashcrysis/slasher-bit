@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(6f, 12f);
 
-
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 10f;
@@ -93,21 +92,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
-        
-    
             Jump.Play();
         }
-
         else{
                anim.SetBool("isJumping",false);
         }
-
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f){
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-        
-
 
         WallSlide();
         WallJump();
