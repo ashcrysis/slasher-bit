@@ -93,18 +93,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() && jumpCount<2)
+        if (Input.GetButtonDown("Jump") && ableDash() )
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
         
-            jumpCount+=1;
+    
             Jump.Play();
-        //if (jumpCount ==2){
-         //   Debug.Log("JumpCount: "+jumpCount);
-         //   anim.SetBool("airSpin",true);
-        //    StartCoroutine(ResetJumpAfterDelay(0.5f));
-       // }
         }
 
         
