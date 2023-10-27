@@ -45,12 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float hitForce = 10f;
-    public float hitCooldown = 1f;
-    public float lasthitTime;
-    public Animator animSlash;
     public AudioSource Jump;
     public AudioSource Land;
-    public bool canHit ;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -102,13 +98,6 @@ public class PlayerMovement : MonoBehaviour
             Jump.Play();
         }
 
-        
-        
-        if (ableDash()){
-            jumpCount= 1;
-            Debug.Log("jumpCount now is one " + jumpCount);
-        }
-
         else{
                anim.SetBool("isJumping",false);
         }
@@ -120,19 +109,6 @@ public class PlayerMovement : MonoBehaviour
         
 
 
-       if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown){
-                lasthitTime = Time.time;
-                
-                anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                canHit=true;
-            }
-        else{
-            anim.SetBool("isAttacking",false);
-            canHit=false;
-            animSlash.SetBool("isAttacking",false);
-        }
-
         WallSlide();
         WallJump();
         if (cutscene){
@@ -140,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
 }
 
-        if (!isWallJumping && canHit==false){
+        if (!isWallJumping){
         Flip();
         }
             // Check for Shift key input to run
