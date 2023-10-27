@@ -6,7 +6,7 @@ public class Blood : MonoBehaviour
     public ParticleSystem blood;
     private bool bloodInstantiated = false;
     private bool hit;
-    private SwordSlash swordSlash;
+    private swordController swordSlash;
 
    
     void Start()
@@ -15,7 +15,7 @@ public class Blood : MonoBehaviour
  if (slashObject != null)
         {
             // Obtendo o componente SwordSlash do objeto Slash
-            swordSlash = slashObject.GetComponent<SwordSlash>();
+            swordSlash = slashObject.GetComponent<swordController>();
 
             if (swordSlash == null)
             {

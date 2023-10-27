@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(6f, 12f);
 
-
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 10f;
@@ -45,12 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float hitForce = 10f;
-    public float hitCooldown = 1f;
-    public float lasthitTime;
-    public Animator animSlash;
     public AudioSource Jump;
     public AudioSource Land;
-    public bool canHit ;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -93,49 +88,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() && jumpCount<2)
+        if (Input.GetButtonDown("Jump") && ableDash() )
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             anim.SetBool("isJumping",true);
-        
-            jumpCount+=1;
             Jump.Play();
-        //if (jumpCount ==2){
-         //   Debug.Log("JumpCount: "+jumpCount);
-         //   anim.SetBool("airSpin",true);
-        //    StartCoroutine(ResetJumpAfterDelay(0.5f));
-       // }
         }
-
-        
-        
-        if (ableDash()){
-            jumpCount= 1;
-            Debug.Log("jumpCount now is one " + jumpCount);
-        }
-
         else{
                anim.SetBool("isJumping",false);
-        }
-
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f){
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-        
-
-
-       if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lasthitTime > hitCooldown){
-                lasthitTime = Time.time;
-                
-                anim.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                animSlash.SetBool("isAttacking",Input.GetButtonDown("Fire1"));
-                canHit=true;
-            }
-        else{
-            anim.SetBool("isAttacking",false);
-            canHit=false;
-            animSlash.SetBool("isAttacking",false);
         }
 
         WallSlide();
@@ -145,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         }
 }
 
-        if (!isWallJumping && canHit==false){
+        if (!isWallJumping && !anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit_walking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("roll") && !anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit")){
         Flip();
         }
             // Check for Shift key input to run
