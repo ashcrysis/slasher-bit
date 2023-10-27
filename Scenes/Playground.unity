@@ -1431,7 +1431,6 @@ MonoBehaviour:
   prefabs:
   - {fileID: 7384788529703163510, guid: d8d91f425b6962047980e722d7940ef8, type: 3}
   - {fileID: 7384788529703163510, guid: 6e0bf5ad13078fb43a8acc148cb005d7, type: 3}
-  - {fileID: 7384788529703163510, guid: 55e8d1a8f3805774aae7a43490fd0350, type: 3}
   enemyTag: enemy
   respawnCooldown: 2
   waveText: {fileID: 2093358797}
