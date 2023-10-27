@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
 }
 
-        if (!isWallJumping){
+        if (!isWallJumping && !anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit_walking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("roll") && !anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit")){
         Flip();
         }
             // Check for Shift key input to run

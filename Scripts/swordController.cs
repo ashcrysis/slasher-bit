@@ -9,7 +9,7 @@ public class swordController : MonoBehaviour
     public Animator anim;
     public Animator animSlash;
     public bool canHit ;
-    public float hitCooldown = 1f;
+    public float hitCooldown = 0.5f;
     public PlayerMovement playerMovement;
     public AudioSource audio;
     public bool hit;
@@ -21,7 +21,7 @@ public class swordController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("AttackAnimation"))
+    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit_walking") &&!anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit"))
         {
             canDamage = true;
             canHit = true;
