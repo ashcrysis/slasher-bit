@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 10f;
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
+     private float jumpCooldown = 1f;
     private bool untouchable;
     private bool house = false;
     public bool cutscene = false;
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource Land;
     public AudioSource SnowWalk;
     public AudioSource SnowRun;
+    public AudioSource Dash;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -264,5 +266,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void playRun(){
         SnowRun.Play();
+    }
+    void playDash(){
+        Dash.Play();
+    }
+    void playWallJump(){
+        if (isWallJumping){
+        Jump.Play();
+        }
     }
 }
