@@ -17,7 +17,7 @@ public class swordController : MonoBehaviour
     public int damage = 30;
     private bool canDamage = true;
     private bool isCutscene = false;
-
+    private float knockbackForce = 8f;
   
     // Update is called once per frame
     void Update()
@@ -85,6 +85,13 @@ public class swordController : MonoBehaviour
                     {
                     enemy.life -= damage;
                     canDamage = false;
+                    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                    if (enemyRb != null)
+                    {
+                        Vector2 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+                        enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+                        Debug.Log("Applied knockback");
+                    }
                     Debug.Log(damage + " points ");
                     hit = false;
                     }
