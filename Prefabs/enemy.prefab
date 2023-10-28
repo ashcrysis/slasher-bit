@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ee15e94a973db468c74a2caf31a042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 2
+  acceleration: 5
   maxSpeed: 8
   detectionRange: 18
   anim: {fileID: 1791504797911948660}
