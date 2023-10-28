@@ -20,7 +20,6 @@ public class swordController : MonoBehaviour
     private bool canDamage = true;
     private bool isCutscene = false;
     private float knockbackForce = 8f;
-    public AudioSource knock;
   
     // Update is called once per frame
     void Update()
@@ -95,10 +94,7 @@ public class swordController : MonoBehaviour
                         Vector2 knockbackDirection = (enemy.transform.position - transform.position).normalized;
                         enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
                         Debug.Log("Applied knockback");
-                        
-                        if (enemy.life > 0){
-                            knock.Play();
-                        }
+                       
                     }
                     Debug.Log(damage + " points ");
                     hit = false;

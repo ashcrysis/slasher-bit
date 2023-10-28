@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     public float hitForce = 10f;
     public AudioSource Jump;
     public AudioSource Land;
-    public AudioSource Step;
+    public AudioSource SnowWalk;
+    public AudioSource SnowRun;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         
         horizontal = Input.GetAxisRaw("Horizontal");    
          moving = horizontal!= 0 ? true : false;
+
         anim.SetBool("landanim",ableDash());
        
         anim.SetBool("isMoving",moving);
@@ -256,8 +258,11 @@ public class PlayerMovement : MonoBehaviour
         Land.Play();
 
     }
+    void playWalk(){
+        SnowWalk.Play();
 
-     void playStep(){
-
+    }
+    void playRun(){
+        SnowRun.Play();
     }
 }
