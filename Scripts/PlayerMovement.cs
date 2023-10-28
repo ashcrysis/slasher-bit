@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public float hitForce = 10f;
     public AudioSource Jump;
     public AudioSource Land;
+    public AudioSource Step;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -250,5 +251,13 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+     void playLand(){
+        Land.Play();
+
+    }
+
+     void playStep(){
+
     }
 }
