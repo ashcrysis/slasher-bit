@@ -19,7 +19,7 @@ public class swordController : MonoBehaviour
     public int damage = 30;
     private bool canDamage = true;
     private bool isCutscene = false;
-    private float knockbackForce = 8f;
+    private float knockbackForce = 9f;
   
     // Update is called once per frame
     void Update()
