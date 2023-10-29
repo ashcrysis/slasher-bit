@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,12 +13,13 @@ public class swordController : MonoBehaviour
     public bool canHit ;
     public float hitCooldown = 0.5f;
     public PlayerMovement playerMovement;
+    
     public AudioSource audio;
     public bool hit;
     public int damage = 30;
     private bool canDamage = true;
     private bool isCutscene = false;
-
+    private float knockbackForce = 9f;
   
     // Update is called once per frame
     void Update()
@@ -83,8 +85,17 @@ public class swordController : MonoBehaviour
             {
                 if (canDamage)
                     {
+                        
                     enemy.life -= damage;
                     canDamage = false;
+                    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                    if (enemyRb != null)
+                    {
+                        Vector2 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+                        enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+                        Debug.Log("Applied knockback");
+                       
+                    }
                     Debug.Log(damage + " points ");
                     hit = false;
                     }

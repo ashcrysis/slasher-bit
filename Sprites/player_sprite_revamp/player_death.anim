@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player_katana_attack_running
+  m_Name: player_death
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,23 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -569442026, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: -60037823, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.083333336
-      value: {fileID: 1902523720, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: -800062349, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.16666667
-      value: {fileID: 2028219915, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: -626832781, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.25
-      value: {fileID: -115723675, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: 652087049, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.33333334
-      value: {fileID: 673512659, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: 1562170438, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.41666666
-      value: {fileID: -1903461350, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: 1132038285, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.5
-      value: {fileID: -2091147684, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: -477138581, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     - time: 0.5833333
-      value: {fileID: -333973012, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+      value: {fileID: -870991, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - time: 0.6666667
+      value: {fileID: 1608043615, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,20 +60,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -569442026, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: 1902523720, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: 2028219915, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: -115723675, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: 673512659, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: -1903461350, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: -2091147684, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
-    - {fileID: -333973012, guid: fd52327692e6c8b4a8e8fa62a5394d6b, type: 3}
+    - {fileID: -60037823, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: -800062349, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: -626832781, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: 652087049, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: 1562170438, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: 1132038285, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: -477138581, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: -870991, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
+    - {fileID: 1608043615, guid: 6d358ffb2034aca478b5393d3f0e2f3c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,18 +93,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.16666667
-    functionName: playRun
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: playRun
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

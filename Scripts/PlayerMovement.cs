@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 10f;
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
+     private float jumpCooldown = 1f;
     private bool untouchable;
     private bool house = false;
     public bool cutscene = false;
@@ -46,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     public float hitForce = 10f;
     public AudioSource Jump;
     public AudioSource Land;
+    public AudioSource SnowWalk;
+    public AudioSource SnowRun;
+    public AudioSource Dash;
     Animator anim;
     private void Start(){
             origSpeed = speed;
@@ -59,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         
         horizontal = Input.GetAxisRaw("Horizontal");    
          moving = horizontal!= 0 ? true : false;
+
         anim.SetBool("landanim",ableDash());
        
         anim.SetBool("isMoving",moving);
@@ -249,6 +254,25 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+     void playLand(){
+        Land.Play();
+
+    }
+    void playWalk(){
+        SnowWalk.Play();
+
+    }
+    void playRun(){
+        SnowRun.Play();
+    }
+    void playDash(){
+        Dash.Play();
+    }
+    void playWallJump(){
+        if (isWallJumping){
+        Jump.Play();
         }
     }
 }
