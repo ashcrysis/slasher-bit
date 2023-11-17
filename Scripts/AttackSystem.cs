@@ -1,3 +1,5 @@
+/* The AttackSystem class in C# handles player attacks by detecting mouse clicks and performing
+sequential attacks. */
 using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
@@ -6,6 +8,7 @@ public class AttackSystem : MonoBehaviour
     float timeBetweenClicks = 0.3f;
     int currentSequence = 0;
     public Animator anim;
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

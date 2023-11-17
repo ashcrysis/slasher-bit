@@ -29,6 +29,8 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
+      /* This code is responsible for controlling the enemy's behavior when the player is within the
+      detection range. */
         if (player != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);

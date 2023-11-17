@@ -58,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
     
     }
 
+  /// <summary>
+  /// This function updates the character's movement and animation based on player input.
+  /// </summary>
+  /// <returns>
+  /// The code does not explicitly return anything.
+  /// </returns>
     private void Update()
     {
         
@@ -126,6 +132,14 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+  /// <summary>
+  /// This function updates the velocity of the Rigidbody component based on the input and acceleration
+  /// variables.
+  /// </summary>
+  /// <returns>
+  /// If the condition "isDashing" is true, then the function will return and exit without executing any
+  /// further code.
+  /// </returns>
     private void FixedUpdate()
     {
       if (isDashing)
@@ -143,6 +157,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+/// <summary>
+/// The WallJump function allows the player to perform a wall jump if they are currently wall sliding or
+/// have recently wall jumped.
+/// </summary>
  private void WallJump()
     {
         if (isWallSliding)
@@ -178,6 +196,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+   /// <summary>
+   /// The Dashh function allows the player to dash in a specific direction for a certain amount of
+   /// time, with a cooldown period before they can dash again.
+   /// </summary>
     private IEnumerator Dashh()
     {
         canDash = false;
@@ -195,17 +217,37 @@ public class PlayerMovement : MonoBehaviour
         isWallJumping = false;
     }
 
+/// <summary>
+/// The IsGrounded function checks if the player is currently touching the ground using a 2D physics
+/// overlap circle.
+/// </summary>
+/// <returns>
+/// The method is returning a boolean value.
+/// </returns>
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
     }
+ /// <summary>
+ /// The function "ableDash" checks if there is a ground layer within a certain radius of a given
+ /// position.
+ /// </summary>
+ /// <returns>
+ /// The method is returning a boolean value.
+ /// </returns>
   private bool ableDash()
     {
         return Physics2D.OverlapCircle(abletoDash.position, 0.2f, groundLayer);
 
     }
 
+ /// <summary>
+ /// The IsWalled function checks if there is a wall present at the specified position.
+ /// </summary>
+ /// <returns>
+ /// The method is returning a boolean value.
+ /// </returns>
    private bool IsWalled()
     {
     return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
@@ -230,6 +272,10 @@ public class PlayerMovement : MonoBehaviour
        
         anim.SetBool("airSpin",false);
     }
+  /// <summary>
+  /// The WallSlide function checks if the player is touching a wall and not able to dash, and if so,
+  /// sets the player's velocity to slide down the wall at a specified speed.
+  /// </summary>
     private void WallSlide()
     {
         if (IsWalled() && !ableDash() && horizontal != 0f)
@@ -246,6 +292,10 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    /// <summary>
+    /// The Flip function flips the direction the object is facing based on the value of the horizontal
+    /// input.
+    /// </summary>
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)

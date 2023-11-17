@@ -35,6 +35,12 @@ public class Blood : MonoBehaviour
        
     }
 
+    /// <summary>
+    /// This function checks if a collider is staying within a trigger area, and if so, instantiates a
+    /// blood particle effect at the closest point on the collider to the current object's position.
+    /// </summary>
+    /// <param name="Collider2D">The parameter "collider" is of type Collider2D. It represents the
+    /// collider component of the object that triggered the collision.</param>
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (!bloodInstantiated && collider.gameObject.tag == "Attack" && hit)

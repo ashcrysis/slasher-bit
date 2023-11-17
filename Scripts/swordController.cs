@@ -22,6 +22,10 @@ public class swordController : MonoBehaviour
     private float knockbackForce = 9f;
   
     // Update is called once per frame
+  /// <summary>
+  /// This function updates the player's ability to hit and damage enemies based on input and animation
+  /// states.
+  /// </summary>
     void Update()
     {
     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit_walking") &&!anim.GetCurrentAnimatorStateInfo(0).IsName("hold_hit"))
@@ -75,6 +79,12 @@ public class swordController : MonoBehaviour
         hit = false;
     }
 
+/// <summary>
+/// This function applies damage and knockback to an enemy if the player is hitting them.
+/// </summary>
+/// <param name="Collider2D">The Collider2D parameter represents the collider component attached to the
+/// game object that is triggering the event. In this case, it is used to check if the collider belongs
+/// to an enemy object.</param>
   void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("enemy") && hit)

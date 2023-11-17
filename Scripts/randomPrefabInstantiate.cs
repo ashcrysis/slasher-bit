@@ -24,6 +24,10 @@ public class RandomPrefabInstantiator : MonoBehaviour
         UpdateUI();
     }
 
+   /// <summary>
+   /// The Update function checks if all enemies are inactive and not currently respawning, and if so,
+   /// starts the respawn coroutine for the next wave.
+   /// </summary>
     void Update()
     {
         // Check if all enemies are inactive and not currently respawning
@@ -37,6 +41,11 @@ public class RandomPrefabInstantiator : MonoBehaviour
         UpdateUI();
     }
 
+   /// <summary>
+   /// The function "InstantiatePrefabsRandomly" instantiates a specified number of prefabs randomly
+   /// along a given range between two points.
+   /// </summary>
+   /// <param name="numberOfPrefabs">The number of prefabs you want to instantiate randomly.</param>
     void InstantiatePrefabsRandomly(int numberOfPrefabs)
     {
         for (int i = 0; i < numberOfPrefabs; i++)
@@ -58,6 +67,12 @@ public class RandomPrefabInstantiator : MonoBehaviour
         }
     }
 
+/// <summary>
+/// The function "AllEnemiesInactive" checks if all enemies in the game are inactive.
+/// </summary>
+/// <returns>
+/// a boolean value.
+/// </returns>
     bool AllEnemiesInactive()
     {
         // Check if all enemies are inactive
@@ -65,6 +80,10 @@ public class RandomPrefabInstantiator : MonoBehaviour
         return enemies.Length <= 0;
     }
 
+   /// <summary>
+   /// This function handles the respawn logic for a game, including calculating the number of prefabs
+   /// to respawn, waiting for a cooldown period, and then respawning the prefabs for the next wave.
+   /// </summary>
     System.Collections.IEnumerator RespawnAfterCooldown()
     {
         // Set the flag to indicate that respawning is in progress
@@ -87,6 +106,9 @@ public class RandomPrefabInstantiator : MonoBehaviour
         isRespawning = false;
     }
 
+  /// <summary>
+  /// The function "UpdateUI" updates the UI Text objects with the current wave number and enemy count.
+  /// </summary>
     void UpdateUI()
     {
         // Update the UI Text objects with the current wave number and enemy count
