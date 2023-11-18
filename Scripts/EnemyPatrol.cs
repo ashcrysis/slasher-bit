@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -10,7 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     private GameObject player;
     private bool moving;
     public Animator anim;
-
+    public bool hit = true;
     private Rigidbody2D rb;
 
     void Start()
@@ -65,7 +66,6 @@ public class EnemyPatrol : MonoBehaviour
                     // Check for movement
                     if (rb.velocity.magnitude > 0)
                     {
-                        Debug.Log("Enemy is moving!");
                         moving = true;
                         // Do something when the enemy is moving
                     }
@@ -81,6 +81,35 @@ public class EnemyPatrol : MonoBehaviour
 
                 anim.SetBool("isPatrolling", moving);
             }
+        }
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {   
+      if (other.CompareTag("Player") && hit)
+        {
+        var col = other.gameObject.GetComponent<PlayerMovement>();
+        if (col != null){    
+            Debug.Log("Has touched player!" + col.name);
+            anim.SetBool("isAttacking",true);
+            Debug.Log("Has hit!");
+            hit = false;
+            col.
+            StartCoroutine(ResetHitAfterDelay(2f));
+        }
+    }
+        
+    }
+    private void turnAnimOff(){
+
+         anim.SetBool("isAttacking",false);
+    }
+  
+    IEnumerator ResetHitAfterDelay(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            hit = true;
         }
     }
 }

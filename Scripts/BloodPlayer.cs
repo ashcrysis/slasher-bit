@@ -1,49 +1,27 @@
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
-public class Blood : MonoBehaviour
+public class BloodPlayer : MonoBehaviour
 {
     public ParticleSystem blood;
     private bool bloodInstantiated = false;
     private bool hit;
     private swordController swordSlash;
-
+    private EnemyPatrol enemy;
    
     void Start()
     {
-         GameObject slashObject = GameObject.Find("Slash");
- if (slashObject != null)
-        {
-            // Obtendo o componente SwordSlash do objeto Slash
-            swordSlash = slashObject.GetComponent<swordController>();
-
-            if (swordSlash == null)
-            {
-                Debug.LogError("SwordSlash component not found on the Slash object!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Slash object not found in the scene!");
-        }
-
-        
+        enemy = GetComponent<EnemyPatrol>();
     }
     void Update()
     {
-        hit = swordSlash.hit;
-       
+       hit = enemy.hit;
     }
 
-    /// <summary>
-    /// This function checks if a collider is staying within a trigger area, and if so, instantiates a
-    /// blood particle effect at the closest point on the collider to the current object's position.
-    /// </summary>
-    /// <param name="Collider2D">The parameter "collider" is of type Collider2D. It represents the
-    /// collider component of the object that triggered the collision.</param>
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (!bloodInstantiated && collider.gameObject.tag == "Attack" && hit)
+       
+        if (!bloodInstantiated && collider.gameObject.tag == "Player" && hit)
         {
             Vector3 hitDirection = (collider.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
@@ -57,6 +35,7 @@ public class Blood : MonoBehaviour
             
         }
     }
+    
 
     private IEnumerator TurnBloodyOff(float delay, ParticleSystem blood)
     {
