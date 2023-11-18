@@ -66,7 +66,7 @@ public class EnemyPatrol : MonoBehaviour
                     // Check for movement
                     if (rb.velocity.magnitude > 0)
                     {
-                        moving = true;
+                            moving = true;
                         // Do something when the enemy is moving
                     }
                     else
